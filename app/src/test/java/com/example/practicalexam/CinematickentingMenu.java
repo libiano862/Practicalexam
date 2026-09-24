@@ -1,32 +1,44 @@
 package com.example.practicalexam;
 
-import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
-
 import java.util.Scanner;
 
-public class CinematickentingMenu {
+public class CinematicketingMenu {
+    public void start(Scanner scanner) {
+        boolean running = true;
 
-    @Test
-    public void testCinemaFlow() {
+        while (running) {
+            System.out.println("---Cinematic Ticketing System---");
+            System.out.println("1. Buy Ticket");
+            System.out.println("2. Buy Snacks");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
 
-        StringBuilder automatedInput = new StringBuilder();
-        System.out.println("--- GENERATING CINEMA TEST DATA ---");
-// Step 1: Test underage restriction (< 18)
-        automatedInput.append("1\n"); // Choose Buy Ticket
-        automatedInput.append("15\n"); // Enter age 15 (Expected: Access Denied)
-// Step 2: Test legal age access (>= 18)
-        automatedInput.append("1\n"); // Choose Buy Ticket
-        automatedInput.append("20\n"); // Enter age 20 (Expected: Ticket Printed)
-// Step 3: Test snack purchase
-        automatedInput.append("2\n"); // Choose Buy Snacks
-// Step 4: Exit system
-        automatedInput.append("3\n"); // Choose Exit
-        System.out.println("--- TEST DATA GENERATION COMPLETE ---\n");
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(automatedInput.toString().getBytes());
-        Scanner scanner = new Scanner(inputStream);
-        CinematicketingMenu cinemaSystem = new CinematicketingMenu();
-        cinemaSystem.start(scanner);
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("--------------------- ");
+                    System.out.print("Choose buy ticket");
+                    int age = scanner.nextInt();
+                    if (age < 18) {
+                        System.out.println("Access Denied");
+                    } else {
+                        System.out.println("Ticket Printed");
+                    }
+                    break;
+                case 2:
+                    System.out.println("-------------------- ");
+                    System.out.println("choose buy snacks");
+                    break;
+                case 3:
+                    System.out.println("-------------------- ");
+                    System.out.println("choose exit");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        }
     }
 }
