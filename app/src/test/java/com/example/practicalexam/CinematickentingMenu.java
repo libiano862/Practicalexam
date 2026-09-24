@@ -1,11 +1,16 @@
-
 package com.example.practicalexam;
+
 import org.junit.Test;
+
 import java.io.ByteArrayInputStream;
+
 import java.util.Scanner;
-public class CinemaTicketingTest {
+
+public class CinematickentingMenu {
+
     @Test
     public void testCinemaFlow() {
+
         StringBuilder automatedInput = new StringBuilder();
         System.out.println("--- GENERATING CINEMA TEST DATA ---");
 // Step 1: Test underage restriction (< 18)
@@ -21,7 +26,7 @@ public class CinemaTicketingTest {
         System.out.println("--- TEST DATA GENERATION COMPLETE ---\n");
         ByteArrayInputStream inputStream = new ByteArrayInputStream(automatedInput.toString().getBytes());
         Scanner scanner = new Scanner(inputStream);
-        CinemaMenu cinemaSystem = new CinemaMenu();
+        CinematicketingMenu cinemaSystem = new CinematicketingMenu();
         cinemaSystem.start(scanner);
     }
 }
